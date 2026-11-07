@@ -41,18 +41,6 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, onNavigate, onOpenBook
         {/* Hero Content - BORDERLESS typography directly over hero (No box wrapper!) */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 sm:pt-12">
           <div className="max-w-3xl">
-            {/* Slogan Header Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-md border border-[#009E96]/40 text-[#36D1C4] text-xs sm:text-sm font-bold mb-6 rounded-full shadow-lg gsap-reveal-title">
-              <Sparkles className="w-4 h-4 text-[#36D1C4]" />
-              <span className="tracking-wide">
-                {lang === 'ar' ? 'مركز زان للأسنان · البحرين' : 'Zahn Dental Center · Bahrain'}
-              </span>
-              <span className="text-white/40">|</span>
-              <span className="font-extrabold text-white tracking-wider">
-                {lang === 'ar' ? CLINIC_INFO.sloganAr : CLINIC_INFO.sloganEn}
-              </span>
-            </div>
-
             {/* Oversized Headline - BORDERLESS */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight text-white leading-[1.05] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] font-sans gsap-reveal-title">
               {lang === 'ar' ? (

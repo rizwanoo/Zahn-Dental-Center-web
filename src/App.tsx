@@ -30,6 +30,41 @@ export default function App() {
     }
   }, [lang]);
 
+  // Ensure absolute URLs for social share preview cards (WhatsApp, Facebook, Twitter, iMessage)
+  useEffect(() => {
+    try {
+      const origin = window.location.origin;
+      const fullUrl = window.location.href;
+      
+      const ogUrlMeta = document.querySelector('meta[property="og:url"]');
+      if (ogUrlMeta) ogUrlMeta.setAttribute('content', fullUrl);
+      else {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', 'og:url');
+        meta.setAttribute('content', fullUrl);
+        document.head.appendChild(meta);
+      }
+
+      const ogImgMeta = document.querySelector('meta[property="og:image"]');
+      if (ogImgMeta) {
+        const currentImg = ogImgMeta.getAttribute('content');
+        if (currentImg && !currentImg.startsWith('http')) {
+          ogImgMeta.setAttribute('content', `${origin}${currentImg}`);
+        }
+      }
+
+      const twitterImgMeta = document.querySelector('meta[name="twitter:image"]');
+      if (twitterImgMeta) {
+        const currentImg = twitterImgMeta.getAttribute('content');
+        if (currentImg && !currentImg.startsWith('http')) {
+          twitterImgMeta.setAttribute('content', `${origin}${currentImg}`);
+        }
+      }
+    } catch {
+      // Ignore fallback errors
+    }
+  }, []);
+
   // Always scroll to TOP of page whenever current page changes
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
