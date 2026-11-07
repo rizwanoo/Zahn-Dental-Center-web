@@ -1,0 +1,6 @@
+{
+  "name": "Zahn Dental Center | مركز زان للأسنان",
+  "description": "Zahn Dental Center in Um Al Hassam, Bahrain. Premium dental care, cosmetic smile design, dental implants, orthodontics, and restorative dentistry. ابتسامتك تبدأ هنا.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
